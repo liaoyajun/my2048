@@ -1,0 +1,217 @@
+/*描述字体颜色: #776e65*/
+/*带色背景颜色: #bbada0*/
+@keyframes fade-in-out
+{
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+  }
+  20% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+  80% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+  }
+}
+.container {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 0.1px;
+}
+.head {
+  display: flex;
+  margin: 40rpx auto 0;
+  width: 100%;
+  height: 130rpx;
+  justify-content: space-around;
+}
+.head .head-item {
+  width: 230rpx;
+  height: 130rpx;
+}
+.head .name {
+  line-height: 130rpx;
+  text-align: center;
+  font-size: 50rpx;
+  font-weight: bolder;
+  color: #776e65;
+}
+.head .name .animation-wrap {
+  animation: fade-in-out 2s linear forwards;
+}
+.head .name image {
+  display: inline-block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50% 50%;
+  vertical-align: middle;
+}
+.head .name .user {
+  font-size: 40rpx;
+}
+.head .name .author {
+  font-size: 24rpx;
+}
+.head .score {
+  border-radius: 12rpx;
+  background: #bbada0;
+}
+.head .score .head-item-title {
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #efe2d6;
+}
+.head .score .num {
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #ffffff;
+}
+.main {
+  box-sizing: border-box;
+  margin: 40rpx auto 10rpx;
+  width: 700rpx;
+  height: 700rpx;
+  padding: 10rpx;
+  border-radius: 6rpx;
+  background: #bbada0;
+}
+.main .box {
+  float: left;
+  margin: 10rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 6rpx;
+  line-height: 150rpx;
+  text-align: center;
+}
+.main .box0 {
+  background: #a8a195;
+}
+.main .box2 {
+  font-size: 60rpx;
+  color: #756e67;
+  background: #eee4da;
+}
+.main .box4 {
+  font-size: 60rpx;
+  color: #756e67;
+  background: #ece0c8;
+}
+.main .box8 {
+  font-size: 60rpx;
+  color: #756e67;
+  background: #f2b179;
+}
+.main .box16 {
+  font-size: 55rpx;
+  color: #ffffff;
+  background: #f59563;
+}
+.main .box32 {
+  font-size: 55rpx;
+  color: #ffffff;
+  background: #f57c5f;
+}
+.main .box64 {
+  font-size: 55rpx;
+  color: #ffffff;
+  background: #f65d3b;
+}
+.main .box128 {
+  font-size: 50rpx;
+  color: #ffffff;
+  background: #edcc61;
+}
+.main .box256 {
+  font-size: 50rpx;
+  color: #ffffff;
+  background: #edcc61;
+}
+.main .box512 {
+  font-size: 50rpx;
+  color: #ffffff;
+  background: #edcc61;
+}
+.main .box1024 {
+  font-size: 45rpx;
+  color: #ffffff;
+  background: #edcc61;
+}
+.main .box2048 {
+  font-size: 45rpx;
+  color: #ffffff;
+  background: #eec22e;
+}
+.record {
+  width: 100%;
+}
+.record .title {
+  position: relative;
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #776e65;
+}
+.record .title::before, .record .title::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 28rpx;
+  width: 100rpx;
+  height: 4rpx;
+  background: #776e65;
+}
+.record .title::before {
+  left: 150rpx;
+}
+.record .title::after {
+  right: 150rpx;
+}
+.record .record-wrap {
+  display: block;
+  margin: 20rpx auto 0;
+  width: 100%;
+  height: 160rpx;
+}
+.record .record-wrap image {
+  display: block;
+  margin: auto;
+  width: 260rpx;
+  height: 160rpx;
+}
+.record .record-wrap .record-item {
+  text-indent: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #776e65;
+}
+.record .record-wrap .record-item text {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
