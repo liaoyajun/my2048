@@ -13,7 +13,7 @@
       <view class="num">{{bestScore}}</view>
     </view>
   </view>
-  <view class="tip">分享成功有惊喜，快去试试吧！</view>
+  <view class="tip">转发分享成功有惊喜，快去试试吧！</view>
   <view class="main" catchtouchstart="touchstartFn" catchtouchend="touchendFn">
     <block wx:for="{{doubleArr}}" wx:key="">
       <block wx:for="{{doubleArr[index]}}" wx:for-item="numItem" wx:key="">
