@@ -53,7 +53,7 @@ Page({
     var that = this
     return {
       title: '快来玩小程序版的2048吧！',
-      path: '/page/index/index',
+      path: '/pages/index/index',
       success: function(res) {
         wx.showModal({
           title: '分享成功',
