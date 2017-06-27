@@ -44,7 +44,7 @@
       <image src="https://static.shengri.cn/uploads/image/wechat/sck.png"/>
     </view>
     <view class="record-wrap" wx:else>
-      <view class="record-item" wx:for="{{userRecord}}" wx:key="">{{index + 1}}.  {{item.time}}···················<text>{{item.score}}</text></view>
+      <view class="record-item" wx:for="{{userRecord}}" wx:key="">{{index + 1}}.  {{item.time}} ··················· <text>{{item.score}}</text></view>
     </view>
   </view>
 </view>

@@ -89,8 +89,7 @@ Page({
     var date = time.getDate()
     var hour = time.getHours() < 10 ? "0" + time.getHours() : time.getHours()
     var minute = time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes()
-    var second = time.getSeconds() < 10 ? "0" + time.getSeconds() : time.getSeconds()
-    var currentTime = year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second
+    var currentTime = year + "-" + month + "-" + date + " " + hour + ":" + minute
     return currentTime
   },
   // 重新开始
