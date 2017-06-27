@@ -5,7 +5,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#000",
-    "navigationBarTitleText": "歪的2048",
+    "navigationBarTitleText": "2048小游戏",
     "navigationBarTextStyle":"white"
   }
 }

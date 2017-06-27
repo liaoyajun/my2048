@@ -77,22 +77,28 @@ Page({
     return currentTime
   },
   // 重新开始
-  restart: function () {
+  restart: function (overMsg) {
     var that = this
     var newScore = {
       time: that.dealTime(),
       score: that.data.currentScore
     }
     var userRecord = that.data.userRecord
+    var hasInject = false
     if (userRecord.length > 0) {
+      var scoreArr = []
       userRecord.forEach((v, i) => {
         scoreArr.push(v.score)
       })
       for (var i = 0; i < scoreArr.length; i++) {
-        if (scoreArr[i] < newScore.score) {
+        if (scoreArr[i] <= newScore.score) {
           userRecord.splice(i, 0, newScore)
+          hasInject = true
           break
         }
+      }
+      if ((userRecord.length < 4) && (!hasInject)) {
+        userRecord.push(newScore)
       }
       if (userRecord.length > 4) {
         userRecord = userRecord.splice(0, 4)
@@ -106,7 +112,7 @@ Page({
     wx.setStorageSync('record', userRecord)
     wx.showModal({
       title: '提示',
-      content: 'Game Over! ',
+      content: overMsg,
       showCancel: false,
       success: function(res) {
         if (res.confirm) {
@@ -120,7 +126,7 @@ Page({
       }
     })
   },
-  // 在空位随机生成一个2
+  // 在空位随机生成一个2或4
   addNum: function () {
     var that = this
     var doubleArr = JSON.parse(JSON.stringify(that.data.doubleArr))
@@ -134,16 +140,23 @@ Page({
     }
     if (nullArry.length > 0) {
       var randomNum = that.randomFn(0, nullArry.length)
-      doubleArr[nullArry[randomNum][0]][nullArry[randomNum][1]] = 2
+      if (that.randomFn(0, 10) > 7) {
+        doubleArr[nullArry[randomNum][0]][nullArry[randomNum][1]] = 4
+      }else {
+        doubleArr[nullArry[randomNum][0]][nullArry[randomNum][1]] = 2
+      }
       that.setData({
         doubleArr
       })
       that.searchMaxnum()
+      if (that.data.currentScore >= that.data.endScore) {
+        that.restart('Game Win !')
+      }
       if (nullArry.length == 1) {
         that.isOver()
       }
     }else {
-      that.restart()
+      that.restart('Game Over !')
     }
   },
   // 寻找最大的分数，随机生成2后触发
@@ -178,7 +191,7 @@ Page({
     arr3 = this.leftMerge(arr3)
     arr4 = this.rightMerge(arr4)
     if (this.sameArr(arr1, arr) && this.sameArr(arr2, arr) && this.sameArr(arr3, arr) && this.sameArr(arr4, arr)) {
-      this.restart()
+      this.restart('Game Over !')
     }
   },
   // 手指滑动开始
@@ -198,19 +211,63 @@ Page({
       var preArr = JSON.parse(JSON.stringify(that.data.doubleArr))
       if (Math.abs(changeX) - Math.abs(changeY) > 0) {
         if (changeX > 0) {
-          doubleArr = that.rightMerge(doubleArr)
-          doubleArr = that.rightGather(doubleArr)
+          var preDoubleArr  = JSON.parse(JSON.stringify(doubleArr))
+          var currentDoubleArr = []
+          var flag = true
+          do {
+            flag = false
+            doubleArr = that.rightMerge(doubleArr)
+            doubleArr = that.rightGather(doubleArr)
+            currentDoubleArr = JSON.parse(JSON.stringify(doubleArr))
+            if (!that.sameArr(preDoubleArr, currentDoubleArr)) {
+              flag = true
+              preDoubleArr  = JSON.parse(JSON.stringify(currentDoubleArr))
+            }
+          } while(flag)
         }else {
-          doubleArr = that.leftMerge(doubleArr)
-          doubleArr = that.leftGather(doubleArr)
+          var preDoubleArr  = JSON.parse(JSON.stringify(doubleArr))
+          var currentDoubleArr = []
+          var flag = true
+          do {
+            flag = false
+            doubleArr = that.leftMerge(doubleArr)
+            doubleArr = that.leftGather(doubleArr)
+            currentDoubleArr = JSON.parse(JSON.stringify(doubleArr))
+            if (!that.sameArr(preDoubleArr, currentDoubleArr)) {
+              flag = true
+              preDoubleArr  = JSON.parse(JSON.stringify(currentDoubleArr))
+            }
+          } while(flag)
         }
       }else {
         if (changeY > 0) {
-          doubleArr = that.downMerge(doubleArr)
-          doubleArr = that.downGather(doubleArr)
+          var preDoubleArr  = JSON.parse(JSON.stringify(doubleArr))
+          var currentDoubleArr = []
+          var flag = true
+          do {
+            flag = false
+            doubleArr = that.downMerge(doubleArr)
+            doubleArr = that.downGather(doubleArr)
+            currentDoubleArr = JSON.parse(JSON.stringify(doubleArr))
+            if (!that.sameArr(preDoubleArr, currentDoubleArr)) {
+              flag = true
+              preDoubleArr  = JSON.parse(JSON.stringify(currentDoubleArr))
+            }
+          } while(flag)
         }else {
-          doubleArr = that.upMerge(doubleArr)
-          doubleArr = that.upGather(doubleArr)
+          var preDoubleArr  = JSON.parse(JSON.stringify(doubleArr))
+          var currentDoubleArr = []
+          var flag = true
+          do {
+            flag = false
+            doubleArr = that.upMerge(doubleArr)
+            doubleArr = that.upGather(doubleArr)
+            currentDoubleArr = JSON.parse(JSON.stringify(doubleArr))
+            if (!that.sameArr(preDoubleArr, currentDoubleArr)) {
+              flag = true
+              preDoubleArr  = JSON.parse(JSON.stringify(currentDoubleArr))
+            }
+          } while(flag)
         }
       }
       that.setData({

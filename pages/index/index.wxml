@@ -2,7 +2,7 @@
   <view class="head">
     <view class="head-item name">
       <view class="animation-wrap" wx:if="{{showUser}}"><text class="user">玩家：</text><image src="{{userInfo.avatarUrl}}"/></view>
-      <view class="animation-wrap" wx:else>2048<text class="author">©歪</text></view>
+      <view class="animation-wrap" wx:else>2048<text class="author">©leo</text></view>
     </view>
     <view class="head-item score">
       <view class="head-item-title">SCORE</view>
@@ -37,7 +37,7 @@
       <image src="https://static.shengri.cn/uploads/image/wechat/sck.png"/>
     </view>
     <view class="record-wrap" wx:else>
-      <view class="record-item" wx:for="{{userRecord}}">{{index + 1}}.  {{item.time}}···················<text>{{item.score}}</text></view>
+      <view class="record-item" wx:for="{{userRecord}}" wx:key="">{{index + 1}}.  {{item.time}}···················<text>{{item.score}}</text></view>
     </view>
   </view>
 </view>
