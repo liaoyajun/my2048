@@ -150,13 +150,13 @@ Page({
       })
       that.searchMaxnum()
       if (that.data.currentScore >= that.data.endScore) {
-        that.restart('Game Win !')
+        that.restart('恭喜通关！本局得分：' + that.data.currentScore)
       }
       if (nullArry.length == 1) {
         that.isOver()
       }
     }else {
-      that.restart('Game Over !')
+      that.restart('很遗憾您输了！本局得分：' + that.data.currentScore)
     }
   },
   // 寻找最大的分数，随机生成2后触发
@@ -186,12 +186,12 @@ Page({
     var arr2 = JSON.parse(JSON.stringify(that.data.doubleArr))
     var arr3 = JSON.parse(JSON.stringify(that.data.doubleArr))
     var arr4 = JSON.parse(JSON.stringify(that.data.doubleArr))
-    arr1 = this.upMerge(arr1)
-    arr2 = this.downMerge(arr2)
-    arr3 = this.leftMerge(arr3)
-    arr4 = this.rightMerge(arr4)
-    if (this.sameArr(arr1, arr) && this.sameArr(arr2, arr) && this.sameArr(arr3, arr) && this.sameArr(arr4, arr)) {
-      this.restart('Game Over !')
+    arr1 = that.upMerge(arr1)
+    arr2 = that.downMerge(arr2)
+    arr3 = that.leftMerge(arr3)
+    arr4 = that.rightMerge(arr4)
+    if (that.sameArr(arr1, arr) && that.sameArr(arr2, arr) && that.sameArr(arr3, arr) && that.sameArr(arr4, arr)) {
+      that.restart('很遗憾您输了！本局得分：' + that.data.currentScore)
     }
   },
   // 手指滑动开始
