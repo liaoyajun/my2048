@@ -79,9 +79,19 @@
   font-size: 40rpx;
   color: #ffffff;
 }
+.tip {
+  margin-left: 30rpx;
+  width: 400rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #776e65;
+  font-size: 28rpx;
+  transform: scale(0.8);
+  transform-origin: left center;
+}
 .main {
   box-sizing: border-box;
-  margin: 40rpx auto 10rpx;
+  margin: 0 auto 10rpx;
   width: 700rpx;
   height: 700rpx;
   padding: 10rpx;
