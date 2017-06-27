@@ -27,7 +27,7 @@ Page({
         userInfo
       })
     })
-    that.addNum()
+    that.addNum(2)
   },
   onShow: function () {
     var that = this
@@ -48,6 +48,23 @@ Page({
   },
   onHide: function () {
     clearInterval(timer)
+  },
+  onShareAppMessage: function (res) {
+    var that = this
+    return {
+      title: '快来玩小程序版的2048吧！',
+      path: '/page/index/index',
+      success: function(res) {
+        wx.showModal({
+          title: '分享成功',
+          content: '感谢老铁的分享，让我在空位送你一个2048吧！咻~~',
+          showCancel: false,
+          success: function(res) {
+            that.addNum(2048)
+          }
+        })
+      }
+    }
   },
   // 不包含max
   randomFn: function (min, max) {
@@ -121,13 +138,13 @@ Page({
             currentScore: 0,
             bestScore: userRecord[0].score,
           })
-          that.addNum()
+          that.addNum(2)
         }
       }
     })
   },
-  // 在空位随机生成一个2或4
-  addNum: function () {
+  // 在空位生成num
+  addNum: function (num) {
     var that = this
     var doubleArr = JSON.parse(JSON.stringify(that.data.doubleArr))
     var nullArry = []
@@ -140,11 +157,7 @@ Page({
     }
     if (nullArry.length > 0) {
       var randomNum = that.randomFn(0, nullArry.length)
-      if (that.randomFn(0, 10) > 7) {
-        doubleArr[nullArry[randomNum][0]][nullArry[randomNum][1]] = 4
-      }else {
-        doubleArr[nullArry[randomNum][0]][nullArry[randomNum][1]] = 2
-      }
+      doubleArr[nullArry[randomNum][0]][nullArry[randomNum][1]] = num
       that.setData({
         doubleArr
       })
@@ -274,7 +287,8 @@ Page({
         doubleArr
       })
       if (!that.sameArr(preArr, that.data.doubleArr)) {
-        that.addNum()
+        var num = (that.randomFn(0, 10) > 7) ? 4 : 2
+        that.addNum(num)
       }
     }
   },
