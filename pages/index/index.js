@@ -17,7 +17,7 @@ Page({
       [0, 0, 0, 0]
     ],
     // 通关分数
-    endScore: 2048
+    endScore: 131072
   },
   onLoad: function () {
     var that = this

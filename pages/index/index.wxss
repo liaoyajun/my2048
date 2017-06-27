@@ -102,17 +102,17 @@
 }
 .main .box2 {
   font-size: 60rpx;
-  color: #756e67;
+  color: #736a61;
   background: #eee4da;
 }
 .main .box4 {
   font-size: 60rpx;
-  color: #756e67;
+  color: #736a61;
   background: #ece0c8;
 }
 .main .box8 {
   font-size: 60rpx;
-  color: #756e67;
+  color: #736a61;
   background: #f2b179;
 }
 .main .box16 {
@@ -133,7 +133,7 @@
 .main .box128 {
   font-size: 50rpx;
   color: #ffffff;
-  background: #edcc61;
+  background: #edce71;
 }
 .main .box256 {
   font-size: 50rpx;
@@ -143,17 +143,47 @@
 .main .box512 {
   font-size: 50rpx;
   color: #ffffff;
-  background: #edcc61;
+  background: #ecc850;
 }
 .main .box1024 {
   font-size: 45rpx;
   color: #ffffff;
-  background: #edcc61;
+  background: #edc53f;
 }
 .main .box2048 {
   font-size: 45rpx;
   color: #ffffff;
   background: #eec22e;
+}
+.main .box4096 {
+  font-size: 45rpx;
+  color: #ffffff;
+  background: #adb778;
+}
+.main .box8192 {
+  font-size: 45rpx;
+  color: #ffffff;
+  background: #aab767;
+}
+.main .box16384{
+  font-size: 40rpx;
+  color: #ffffff;
+  background: #a4b74e;
+}
+.main .box32768 {
+  font-size: 40rpx;
+  color: #ffffff;
+  background: #a2b740;
+}
+.main .box65536 {
+  font-size: 40rpx;
+  color: #ffffff;
+  background: #a2b740;
+}
+.main .box131072 {
+  font-size: 35rpx;
+  color: #ffffff;
+  background: #a2b740;
 }
 .record {
   width: 100%;

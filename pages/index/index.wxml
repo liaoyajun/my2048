@@ -28,6 +28,12 @@
         <view class="box box512" wx:if="{{numItem == 512}}">512</view>
         <view class="box box1024" wx:if="{{numItem == 1024}}">1024</view>
         <view class="box box2048" wx:if="{{numItem == 2048}}">2048</view>
+        <view class="box box4096" wx:if="{{numItem == 4096}}">4096</view>
+        <view class="box box8192" wx:if="{{numItem == 8192}}">8192</view>
+        <view class="box box16384" wx:if="{{numItem == 16384}}">16384</view>
+        <view class="box box32768" wx:if="{{numItem == 32768}}">32768</view>
+        <view class="box box65536" wx:if="{{numItem == 65536}}">65536</view>
+        <view class="box box131072" wx:if="{{numItem == 131072}}">131072</view>
       </block>
     </block>
   </view>
