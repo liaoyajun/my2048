@@ -1,3 +1,4 @@
+var compute = require('../../utils/compute.js')
 //获取应用实例
 var app = getApp()
 var timer
@@ -5,6 +6,15 @@ var touchstart = {x: 0, y: 0}
 var touchend = {x: 0, y: 0}
 Page({
   data: {
+    // 显示哪个
+    showCalculator: true,
+    // 计算器的变量↓↓↓↓↓↓
+    // 只要改变formula就需要重置浮动
+    contentFloat: true,
+    isResulting: false,
+    formula: '',
+    result: '',
+    // 游戏的变量↓↓↓↓↓↓
     showUser: true,
     userInfo: {},
     userRecord: [],
@@ -47,6 +57,9 @@ Page({
     }
   },
   onHide: function () {
+    this.setData({
+      showCalculator: true
+    })
     clearInterval(timer)
   },
   onShareAppMessage: function (res) {
@@ -66,6 +79,85 @@ Page({
       }
     }
   },
+  // 计算器部分↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+  addChar: function (e) {
+    if (this.data.isResulting) {
+      this.clearall()
+    }
+    wx.vibrateShort()
+    var char = e.currentTarget.dataset.value
+    var formula = this.data.formula
+    if (formula.length > 0) {
+      var lastChar = formula.substr(formula.length - 1, 1)
+      if ((char == '÷' || char == '×' || char == '-' || char == '+' || char == '.') && (lastChar == '÷' || lastChar == '×' || lastChar == '-' || lastChar == '+' || lastChar == '.')) {
+        console.log('不能连续输入符号')
+        console.log(char)
+        console.log(lastChar)
+        return
+      }
+    } else {
+      if (char == '÷' || char == '×' || char == '.') {
+        console.log('开始不能输入乘除符号')
+        console.log(char)
+        return
+      }
+    }
+    this.setData({
+      contentFloat: false,
+      formula: this.data.formula + '' + char
+    })
+    this.setData({
+      contentFloat: true
+    })
+  },
+  clearall: function () {
+    wx.vibrateShort()
+    this.setData({
+      isResulting: false,
+      contentFloat: false,
+      formula: ''
+    })
+    this.setData({
+      contentFloat: true
+    })
+  },
+  clearone: function () {
+    if (this.data.isResulting) {
+      this.clearall()
+    }
+    wx.vibrateShort()
+    var formula = this.data.formula
+    if (formula.length < 1) {
+      return
+    }
+    formula = formula.substr(0, formula.length - 1)
+    this.setData({
+      contentFloat: false,
+      formula
+    })
+    this.setData({
+      contentFloat: true
+    })
+  },
+  compute: function () {
+    wx.vibrateShort()
+    var result = compute(this.data.formula)
+    result = Number(result.toFixed(2))
+    var formula = this.data.formula + '=' + result
+    this.setData({
+      isResulting: true,
+      result,
+      formula
+    })
+  },
+  tapTitle: function () {
+    if (this.data.result == 2048) {
+      this.setData({
+        showCalculator: false
+      })
+    }
+  },
+  // 游戏部分↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   // 不包含max
   randomFn: function (min, max) {
     return parseInt(Math.random() * (max - min)) + min

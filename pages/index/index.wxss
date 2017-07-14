@@ -29,57 +29,159 @@
   overflow: hidden;
   padding-top: 0.1px;
 }
-.head {
+/*计算器*/
+.calculator-wrap {
+  width: 100%;
+  height: 100%;
+  padding-top: 0.1px;
+  background: #e0e0e0;
+}
+.calculator-wrap .bold {
+  font-weight: bold;
+}
+.calculator-wrap .main {
+  margin: 100rpx auto 0;
+  width: 650rpx;
+  height: 1000rpx;
+  padding-top: 0.1px;
+  box-shadow: 0 0 30rpx #c5c5c5;
+  border-radius: 60rpx;
+  background: #c5c5c5;
+}
+.calculator-wrap .title {
+  margin: 20rpx auto 0;
+  width: 530rpx;
+  height: 130rpx;
+  color: #777;
+  line-height: 130rpx;
+}
+.calculator-wrap .screen {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 530rpx;
+  height: 160rpx;
+  padding: 0 10rpx;
+  border: 4rpx solid #fff;
+  border-radius: 20rpx;
+  background: #cce5ff;
+ }
+.calculator-wrap .screen .line {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: right;
+  font-size: 56rpx;
+}
+.calculator-wrap .screen .line2 {
+  width: 100%;
+  overflow-x: hidden;
+}
+.calculator-wrap .screen .line2 .hide {
+  opacity: 0;
+}
+.calculator-wrap .screen .line2 .content {
+  float: right;
+  color: #746760;
+  font-size: 50rpx;
+  letter-spacing: 4rpx;
+  white-space: nowrap;
+}
+.calculator-wrap .btns {
+  margin: 80rpx 0 0 60rpx;
+  /*稍大点，兼容不同屏幕*/
+  width: 562rpx;
+}
+.calculator-wrap .btns .btn-item {
+  float: left;
+  margin: 0 30rpx 40rpx 0;
+  width: 110rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center;
+  background: #000;
+  border-radius: 16rpx;
+}
+.calculator-wrap .btns .big-item {
+  width: 240rpx;
+}
+.calculator-wrap .btns .red {
+  background: #fc0a0a;
+}
+.calculator-wrap .btns .line4 .left {
+  /*420 --> 421*/
+  float: left;
+  width: 421rpx;
+}
+.calculator-wrap .btns .line4 .right {
+  /*110 --> 109*/
+  float: right;
+  width: 109rpx;
+  height: 180rpx;
+  line-height: 180rpx;
+}
+
+
+
+
+
+
+
+
+
+
+/*游戏*/
+.game-wrap .head {
   display: flex;
   margin: 40rpx auto 0;
   width: 100%;
   height: 130rpx;
   justify-content: space-around;
 }
-.head .head-item {
+.game-wrap .head .head-item {
   width: 230rpx;
   height: 130rpx;
 }
-.head .name {
+.game-wrap .head .name {
   line-height: 130rpx;
   text-align: center;
   font-size: 50rpx;
   font-weight: bolder;
   color: #776e65;
 }
-.head .name .animation-wrap {
+.game-wrap .head .name .animation-wrap {
   animation: fade-in-out 2s linear forwards;
 }
-.head .name image {
+.game-wrap .head .name image {
   display: inline-block;
   width: 80rpx;
   height: 80rpx;
   border-radius: 50% 50%;
   vertical-align: middle;
 }
-.head .name .user {
+.game-wrap .head .name .user {
   font-size: 40rpx;
 }
-.head .name .author {
+.game-wrap .head .name .author {
   font-size: 24rpx;
 }
-.head .score {
+.game-wrap .head .score {
   border-radius: 12rpx;
   background: #bbada0;
 }
-.head .score .head-item-title {
+.game-wrap .head .score .head-item-title {
   line-height: 60rpx;
   text-align: center;
   font-size: 24rpx;
   color: #efe2d6;
 }
-.head .score .num {
+.game-wrap .head .score .num {
   line-height: 40rpx;
   text-align: center;
   font-size: 40rpx;
   color: #ffffff;
 }
-.tip {
+.game-wrap .tip {
   margin-left: 30rpx;
   width: 500rpx;
   height: 50rpx;
@@ -89,7 +191,7 @@
   transform: scale(0.8);
   transform-origin: left center;
 }
-.main {
+.game-wrap .main {
   box-sizing: border-box;
   margin: 0 auto 10rpx;
   width: 700rpx;
@@ -98,7 +200,7 @@
   border-radius: 6rpx;
   background: #bbada0;
 }
-.main .box {
+.game-wrap .main .box {
   float: left;
   margin: 10rpx;
   width: 150rpx;
@@ -107,98 +209,98 @@
   line-height: 150rpx;
   text-align: center;
 }
-.main .box0 {
+.game-wrap .main .box0 {
   background: #a8a195;
 }
-.main .box2 {
+.game-wrap .main .box2 {
   font-size: 60rpx;
   color: #736a61;
   background: #eee4da;
 }
-.main .box4 {
+.game-wrap .main .box4 {
   font-size: 60rpx;
   color: #736a61;
   background: #ece0c8;
 }
-.main .box8 {
+.game-wrap .main .box8 {
   font-size: 60rpx;
   color: #736a61;
   background: #f2b179;
 }
-.main .box16 {
+.game-wrap .main .box16 {
   font-size: 55rpx;
   color: #ffffff;
   background: #f59563;
 }
-.main .box32 {
+.game-wrap .main .box32 {
   font-size: 55rpx;
   color: #ffffff;
   background: #f57c5f;
 }
-.main .box64 {
+.game-wrap .main .box64 {
   font-size: 55rpx;
   color: #ffffff;
   background: #f65d3b;
 }
-.main .box128 {
+.game-wrap .main .box128 {
   font-size: 50rpx;
   color: #ffffff;
   background: #edce71;
 }
-.main .box256 {
+.game-wrap .main .box256 {
   font-size: 50rpx;
   color: #ffffff;
   background: #edcc61;
 }
-.main .box512 {
+.game-wrap .main .box512 {
   font-size: 50rpx;
   color: #ffffff;
   background: #ecc850;
 }
-.main .box1024 {
+.game-wrap .main .box1024 {
   font-size: 45rpx;
   color: #ffffff;
   background: #edc53f;
 }
-.main .box2048 {
+.game-wrap .main .box2048 {
   font-size: 45rpx;
   color: #ffffff;
   background: #eec22e;
 }
-.main .box4096 {
+.game-wrap .main .box4096 {
   font-size: 45rpx;
   color: #ffffff;
   background: #adb778;
 }
-.main .box8192 {
+.game-wrap .main .box8192 {
   font-size: 45rpx;
   color: #ffffff;
   background: #aab767;
 }
-.main .box16384{
+.game-wrap .main .box16384{
   font-size: 40rpx;
   color: #ffffff;
   background: #a4b74e;
 }
-.main .box32768 {
+.game-wrap .main .box32768 {
   font-size: 40rpx;
   color: #ffffff;
   background: #a2b740;
 }
-.main .box65536 {
+.game-wrap .main .box65536 {
   font-size: 40rpx;
   color: #ffffff;
   background: #a2b740;
 }
-.main .box131072 {
+.game-wrap .main .box131072 {
   font-size: 35rpx;
   color: #ffffff;
   background: #a2b740;
 }
-.record {
+.game-wrap .record {
   width: 100%;
 }
-.record .title {
+.game-wrap .record .title {
   position: relative;
   width: 100%;
   height: 60rpx;
@@ -207,7 +309,7 @@
   font-size: 30rpx;
   color: #776e65;
 }
-.record .title::before, .record .title::after {
+.game-wrap .record .title::before, .record .title::after {
   content: '';
   display: block;
   position: absolute;
@@ -216,31 +318,31 @@
   height: 4rpx;
   background: #776e65;
 }
-.record .title::before {
+.game-wrap .record .title::before {
   left: 150rpx;
 }
-.record .title::after {
+.game-wrap .record .title::after {
   right: 150rpx;
 }
-.record .record-wrap {
+.game-wrap .record .record-wrap {
   display: block;
   margin: 20rpx auto 0;
   width: 100%;
   height: 160rpx;
 }
-.record .record-wrap image {
+.game-wrap .record .record-wrap image {
   display: block;
   margin: auto;
   width: 260rpx;
   height: 160rpx;
 }
-.record .record-wrap .record-item {
+.game-wrap .record .record-wrap .record-item {
   text-indent: 40rpx;
   line-height: 40rpx;
   font-size: 28rpx;
   color: #776e65;
 }
-.record .record-wrap .record-item text {
+.game-wrap .record .record-wrap .record-item text {
   font-size: 32rpx;
   font-weight: bold;
 }
