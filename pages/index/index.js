@@ -115,6 +115,7 @@ Page({
     this.setData({
       isResulting: false,
       contentFloat: false,
+      result: '',
       formula: ''
     })
     this.setData({
@@ -141,6 +142,9 @@ Page({
   },
   compute: function () {
     wx.vibrateShort()
+    if (this.data.isResulting) {
+      return
+    }
     var result = compute(this.data.formula)
     result = Number(result.toFixed(2))
     var formula = this.data.formula + '=' + result

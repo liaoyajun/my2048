@@ -1,11 +1,12 @@
 {
   "pages":[
+    "pages/test/index",
     "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#000",
-    "navigationBarTitleText": "2048小游戏",
+    "navigationBarTitleText": "简单计算器",
     "navigationBarTextStyle":"white"
   }
 }
